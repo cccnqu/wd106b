@@ -33,7 +33,8 @@
 
 標記 :  a:href/img:src
 
-範例 : [table.htm](table.htm) -- [檢視](https://rawgit.com/cccnqu/wd106b/master/example/01-html/table.htm)
+範例 : [link.htm](link.htm) -- [檢視](https://rawgit.com/cccnqu/wd106b/master/example/01-html/link.htm)
+範例 : [img.htm](img.htm) -- [檢視](https://rawgit.com/cccnqu/wd106b/master/example/01-html/img.htm)
 
 
 ## 表格
