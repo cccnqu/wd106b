@@ -33,9 +33,14 @@
 
 標記 :  a:href
 
+<<<<<<< HEAD
 範例 : [link](link.htm) -- [檢視](https://rawgit.com/cccnqu/wd106b/master/example/01-html/link.htm)
 
 標記 :  img:src
+=======
+範例 : [link.htm](link.htm) -- [檢視](https://rawgit.com/cccnqu/wd106b/master/example/01-html/link.htm)
+範例 : [img.htm](img.htm) -- [檢視](https://rawgit.com/cccnqu/wd106b/master/example/01-html/img.htm)
+>>>>>>> f1147b9a5139db310348e641d5da8857f17673d3
 
 範例 : [img](img.htm) -- [檢視](https://rawgit.com/cccnqu/wd106b/master/example/01-html/img.htm)
 
