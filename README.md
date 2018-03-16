@@ -16,4 +16,5 @@
 疑問解答   | [issue](https://github.com/cccnqu/wd106b/issues)
 更多資源   | [more](more)
 課程網站   | https://mdbookspace.com/view/ccc/js1.md
+入門須知   | [Git](https://github.com/cccnqu/course/wiki/git)
 
