@@ -1,0 +1,13 @@
+a=3
+b=100
+c=0
+for(i=a;i<=b;i++){
+    for(j=2;j<=i;j++)
+    {
+        if(i%j==0)
+        break;
+    }
+    if(i==j){c++
+    }
+}
+console.log(c)
