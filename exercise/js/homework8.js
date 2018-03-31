@@ -1,4 +1,5 @@
-a=7
+function isPrime(a)
+{
 for(i=2;i<=a;i++)
 {
     if(a%i==0) 
@@ -8,7 +9,8 @@ for(i=2;i<=a;i++)
     }
     else 
     {
-        console.log('fak yea');
+        console.log('ture');
         break;
     }
-}
+}}
+console.log(isPrime(17))

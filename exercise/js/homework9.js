@@ -1,5 +1,5 @@
-a=3
-b=100
+function countPrime(a,b)
+{
 c=0
 for(i=a;i<=b;i++){
     for(j=2;j<=i;j++)
@@ -9,5 +9,6 @@ for(i=a;i<=b;i++){
     }
     if(i==j){c++
     }
-}
+}}
+console.log(countPrime(3,7))
 console.log(c)

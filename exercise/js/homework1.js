@@ -1,6 +1,7 @@
-sum=1
-for (i=1;i<=10;i++)
+function multiple(sum)
 {
-    sum=sum*i
-    console.log("sum=",sum);
+     de=1;
+for (i=1;i<=sum;i++)de=de*i;
+return de
 }
+console.log(multiple(10))
