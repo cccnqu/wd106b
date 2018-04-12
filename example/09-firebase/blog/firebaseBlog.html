@@ -46,14 +46,14 @@
 </head>
 <body>
   <section id="content">
-    <div id="login">
+    <div id="login" class="panel">
       <button id="googleLoginBtn">Google Login</button>
-      <button onclick="list()">List Posts</button>
+      <!-- <button onclick="list()">List Posts</button> -->
     </div>
-    <div id="list">
+    <div id="list" class="panel">
       <h1>Posts</h1>
-      <p>You have <strong id="postsLength">{{ posts.length }}</strong> posts!</p>
-      <p><a href="/post/new">Create a Post</a></p>
+      <p>You have <strong id="postsLength"></strong> posts!</p>
+      <p><a href="#/create/">Create a Post</a></p>
       <ul id="posts">
         <!--
         {% for post in posts %}
@@ -65,7 +65,7 @@
         -->
       </ul>
     </div>
-    <div id="new">
+    <div id="create" class="panel">
       <h1>New Post</h1>
       <p>Create a new post.</p>
       <!-- <form action="/post" method="post"> -->
@@ -74,9 +74,9 @@
         <p><input type="button" value="Create" onclick="save()"></p>
       <!-- </form> -->
     </div>
-    <div id="show">
-      <h1>{{ post.title }}</h1>
-      <p>{{ post.body }}</p>
+    <div id="show" class="panel">
+      <h1 id="showTitle"></h1>
+      <p id="showBody"></p>
     </div>
   </section>
 <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>  
@@ -118,56 +118,93 @@ googleLoginBtn.addEventListener("click", function () {
 var loginUser;
 firebase.auth().onAuthStateChanged(function(pUser) {
   if (pUser) {
-  	loginUser = pUser;
+    loginUser = pUser;
+    window.location.hash = '#/list/'
     console.log("User is logined", loginUser)
-    list()
   } else {
   	loginUser = null;
     console.log("User is not logined yet.");
   }
 })
 
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach((node) => node.style.display='none')
+  document.getElementById(id).style.display = 'block'
+}
+
 let posts = []
 
 function list() {
   var postsRef = firebase.database().ref('/user/' + loginUser.uid + '/posts/')
-  console.log("取得使用者所有Post")
   var postsHtml = []
   posts = []
   postsRef.once('value').then(function(snapshot){
+    let i=0
   	snapshot.forEach(function(childSnapshot) {
       let post = childSnapshot.val()
       post.id = childSnapshot.key
       posts.push(post)
-      postsHtml.push(`<li><h2>${post.title}</h2><p><a href="#/readPost/${post.id}">Read post</a></p></li>`)
+      postsHtml.push(`<li><h2>${post.title}</h2><p><a href="#/show/${i++}">Read post</a></p></li>`)
       console.log(childSnapshot.val());
     })
     document.getElementById('posts').innerHTML = postsHtml.join('\n')
     document.getElementById('postsLength').innerHTML = posts.length
+    showPanel('list')
   })
 }
 
 function save() {
   var title = document.getElementById('postTitle').value
-  var text  = document.getElementById('postBody').value
+  var body  = document.getElementById('postBody').value
   var postRef = firebase.database().ref('/user/' + loginUser.uid + '/posts/');
 	postRef.push().set({
-    // uid: loginUser.uid,
     title: title,
-    text: text,
-    // content:postContent.value,
+    body: body,
     time: firebase.database.ServerValue.TIMESTAMP
   }).then(function(){
-    console.log("新增Post成功")
     alert('Save Success!')
   }).catch(function(err){
-  	console.error("新增Post錯誤：",err);
+  	console.error("Save Fail：", err);
     alert('Save Fail!')
   })
-  // window.localStorage.setItem("notepad:"+title, text);
-  showList()
+  list()
 }
 
+function show(match) {
+  let i = parseInt(match[1])
+  document.getElementById('showTitle').innerHTML = posts[i].title
+  document.getElementById('showBody').innerHTML = posts[i].body
+  showPanel('show')
+}
+
+function create(match) {
+  showPanel('create')
+}
+
+let routeMap = [
+  [/^\/?show\/(\w+)\/?$/, show],
+  [/^\/?list\/?$/, list],
+  [/^\/?create\/?$/, create],
+]
+
+window.onhashchange = function () {
+  console.log('onhashchange')
+  var hash = window.location.hash.trim().substring(1)
+  console.log('onhashchange:hash=%s', hash)
+  for (let [regexp, f] of routeMap) {
+    var m = hash.match(regexp)
+    if (m) {
+      console.log('match:m=%j', m)
+      f(m, hash)
+      break
+    }
+  }
+}
+/*
+window.onload = function() {
+  window.location.hash = '#/list/'
+}
+*/
 
 </script>
 </body>
