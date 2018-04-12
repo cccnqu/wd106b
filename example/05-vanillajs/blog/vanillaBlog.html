@@ -1,0 +1,127 @@
+<html>
+<head>
+  <title>Blog</title>
+  <style>
+    body {
+      padding: 80px;
+      font: 16px Helvetica, Arial;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    h2 {
+      font-size: 1.2em;
+    }
+    #posts {
+      margin: 0;
+      padding: 0;
+    }
+    #posts li {
+      margin: 40px 0;
+      padding: 0;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      list-style: none;
+    }
+    #posts li:last-child {
+      border-bottom: none;
+    }
+    textarea {
+      width: 500px;
+      height: 300px;
+    }
+    input[type=text],
+    textarea {
+      border: 1px solid #eee;
+      border-top-color: #ddd;
+      border-left-color: #ddd;
+      border-radius: 2px;
+      padding: 15px;
+      font-size: .8em;
+    }
+    input[type=text] {
+      width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <section id="content">
+    <div id="list" class="panel">
+      <h1>Posts</h1>
+      <p>You have <strong id="postsLength"></strong> posts!</p>
+      <p><a href="#/create/">Create a Post</a></p>
+      <ul id="posts">
+      </ul>
+    </div>
+    <div id="create" class="panel">
+      <h1>New Post</h1>
+      <p>Create a new post.</p>
+      <p><input type="text" placeholder="Title" id="postTitle"></p>
+      <p><textarea placeholder="Contents" id="postBody"></textarea></p>
+      <p><input type="button" value="Create" onclick="save()"></p>
+    </div>
+    <div id="show" class="panel">
+      <h1 id="showTitle"></h1>
+      <p id="showBody"></p>
+    </div>
+  </section>
+<script>
+let posts = []
+
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach((node) => node.style.display='none')
+  document.getElementById(id).style.display = 'block'
+}
+
+function list() {
+  let postsHtml = []
+  for (let i=0; i<posts.length; i++) {
+    postsHtml.push(`<li><h2>${posts[i].title}</h2><p><a href="#/show/${i}">Read post</a></p></li>`)
+  }
+  document.getElementById('posts').innerHTML = postsHtml.join('\n')
+  document.getElementById('postsLength').innerHTML = posts.length
+  showPanel('list')
+}
+
+function save() {
+  var title = document.getElementById('postTitle').value
+  var body  = document.getElementById('postBody').value
+  posts.push({title: title, body: body})
+  // list()
+  window.location.hash = '#/list/'
+}
+
+function show(match) {
+  let i = parseInt(match[1])
+  document.getElementById('showTitle').innerHTML = posts[i].title
+  document.getElementById('showBody').innerHTML = posts[i].body
+  showPanel('show')
+}
+
+function create(match) {
+  showPanel('create')
+}
+
+let routeMap = [
+  [/^\/?show\/(\w+)\/?$/, show],
+  [/^\/?list\/?$/, list],
+  [/^\/?create\/?$/, create],
+]
+
+window.onhashchange = function () {
+  var hash = window.location.hash.trim().substring(1)
+  for (let [regexp, f] of routeMap) {
+    var m = hash.match(regexp)
+    if (m) {
+      f(m, hash)
+      break
+    }
+  }
+}
+
+window.onload = function() {
+  window.location.hash = '#/list/'
+}
+</script>
+</body>
+</html>
