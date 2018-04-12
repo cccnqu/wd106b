@@ -1,0 +1,72 @@
+<!-- 來源 : http://sj82516-blog.logdown.com/posts/1061094 -->
+<html>
+<body>
+    <h2>增加Post</h2>
+    <label>標題</label>
+    <input id="postTitle" type="text">
+    <label>內文</label>
+    <input id="postContent" type="text">
+    <button type="submit" id="postSmtBtn">新增貼文</button>
+    
+    <h2>取得現在使用者所有Post</h2>
+    <h4 id="postList">使用者Post</h4>
+    <button id="postListBtn">Get</button>
+    
+  
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCmc44S50DGj-f9LbagNPLgnVHHaphIZhI",
+    authDomain: "ccc-urspace.firebaseapp.com",
+    databaseURL: "https://ccc-urspace.firebaseio.com",
+    projectId: "ccc-urspace",
+    storageBucket: "",
+    messagingSenderId: "1023578722292"
+  };
+  firebase.initializeApp(config);
+
+var loginUser;
+firebase.auth().onAuthStateChanged(function(pUser) {
+  if (pUser) {
+  	loginUser = pUser;
+    console.log("User is logined", loginUser)
+  } else {
+  	loginUser = null;
+    console.log("User is not logined yet.");
+  }
+});
+
+//新增Post
+var postSmtBtn = document.getElementById("postSmtBtn");
+var postTitle = document.getElementById("postTitle");
+var postContent = document.getElementById("postContent");
+postSmtBtn.addEventListener("click", function(){
+	var postRef = firebase.database().ref('/posts/');
+	postRef.push().set({
+  	uid: loginUser.uid,
+  	title: postTitle.value,
+    content:postContent.value,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }).then(function(){
+  	console.log("新增Post成功");
+  }).catch(function(err){
+  	console.error("新增Post錯誤：",err);
+  })
+})
+
+var postList = document.getElementById("postList");
+var postListBtn = document.getElementById("postListBtn");
+postListBtn.addEventListener("click", function(){
+	var postsRef = firebase.database().ref('posts/').orderByChild("uid").equalTo(loginUser.uid);
+  console.log("取得使用者所有Post")
+  postsRef.once('value').then(function(snapshot){
+  	snapshot.forEach(function(childSnapshot) {
+      console.log(childSnapshot.val());
+    });
+  })
+}, false);
+
+  </script>
+</body>
+</html>

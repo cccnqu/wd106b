@@ -1,0 +1,186 @@
+div, body {
+  margin:0;
+  padding:0;
+}
+
+a { 
+  text-decoration:none;
+  color: #336699;
+}
+
+.center {
+  text-align :center; 
+  margin-left:auto;
+  margin-right:auto; 
+}
+
+.big {
+  font-size: large;
+}
+
+.small {
+  font-size: small;
+}
+
+textarea, input, select {
+  border-radius: 8px;
+}
+
+/* =============== dropdown ===============*/
+.dropdown {
+  float: right;
+  overflow: hidden;
+  margin: 0px 10px;
+  background-color: inherit;
+}
+
+.dropdown .dropbtn {
+  border: none;
+  color:inherit;
+  background-color: inherit;
+  font-size:inherit;
+}
+
+.dropdown:hover .dropbtn, .dropbtn:hover {
+  color: rgb(250, 235, 153);
+}
+
+.dropdown-content {
+  background-color: inherit;
+  display: none;
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  background-color: inherit;
+  float: none;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  background-color: inherit;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*
+.dropdown-content a:hover {}
+
+*/
+/* ============= bodypart =================*/
+/*
+#bodypart {
+  min-height:100vh;
+  padding: 30px 0px 0px 0px;
+}
+*/
+/* ================ sidenav ===============*/
+#sidenav , #sidebar {
+  margin:0;
+  width: 200px;
+  height: 100vh;
+  float:left;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+  color:white;
+  background-color:#336699;
+}
+
+#sidebar {
+  position: fixed;
+  top: 30px;
+  white-space:nowrap;
+}
+
+#sidenav a {
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: large;
+  display: block;
+  transition: 0.3s;
+  color: #dddddd;
+}
+
+/*
+@media screen and (max-width: 600px) {
+  #sidenav, #sidebar {
+    width:0px;
+  }
+}
+*/
+
+/* ================ content ===============*/
+#content {
+  overflow:hidden; /*  max-width: 40em; */
+  width: auto;
+  background-color: #dddddd;
+  padding: 20px;
+  color: #333333;
+  padding-top: 50px;
+}
+
+#content a {
+  color: #336699;
+}
+
+/* ================ footer ================*/
+
+#footer {
+  text-align: center;
+  font-size: small;
+  color: #333333;
+}
+
+/* ================= Form:Button ================*/
+.btn {
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  padding: 5px 10px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+  border-radius: 2px;
+}
+
+.success {background-color: #4CAF50;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: #f44336;} /* Red */ 
+.danger:hover {background: #da190b;}
+
+.default {background-color: #e7e7e7; color: black;} /* Gray */ 
+.default:hover {background: #ddd;}
+
+
+/* ============= headbar ===============*/
+#headbar {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background-color: #333333;
+  color:#bbbbbb;
+  z-index:1;
+  padding: 10px;
+  font-size: normal;
+}
+
+#headbar a  {
+  text-decoration: none;
+/*  color: inherit; */
+  color: #dddddd;
+}
+
+#headbar a:hover {
+  color: rgb(250, 235, 153);
+}

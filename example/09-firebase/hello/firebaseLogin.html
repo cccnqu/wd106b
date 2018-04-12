@@ -1,0 +1,230 @@
+<!-- 來源: http://sj82516-blog.logdown.com/posts/1050619 -->
+<html>
+<body>
+  <h2>註冊</h2>
+  <lable for="account"></lable>
+  <input id="account" type="text">
+  <lable for="pwd"></lable>
+  <input id="pwd" type="password">
+  <button type="submit" id="registerSmtBtn">Signup</button>
+  
+  <h2>登入</h2>
+  <lable for="accountL"></lable>
+  <input id="accountL" type="text">
+  <lable for="pwdL"></lable>
+  <input id="pwdL" type="password">
+  <button type="submit" id="loginSmtBtn">Login</button>
+  
+  <h2>登出</h2>
+  <button id="signoutSmtBtn">Signout</button>
+  
+  <h2>電子郵件驗證</h2>
+  <button id="verifyBtn">Verify</button>
+  
+  <h2>更改密碼</h2>
+  <label for="chgPwd">Email</label>
+  <input id="chgPwd" type="text">
+  <button id="chgPwdBtn">ChangePwd</button>
+  
+  <h2>Google 登入</h2>
+  <button id="googleLoginBtn">Google Login</button>
+<!--
+  <h2>Facebook登入</h2>
+  <button id="fbLoginBtn">FB Login</button>
+-->
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCmc44S50DGj-f9LbagNPLgnVHHaphIZhI",
+    authDomain: "ccc-urspace.firebaseapp.com",
+    databaseURL: "https://ccc-urspace.firebaseio.com",
+    projectId: "ccc-urspace",
+    storageBucket: "",
+    messagingSenderId: "1023578722292"
+  };
+  firebase.initializeApp(config);
+
+
+//Email/Pwd註冊
+var account = document.getElementById("account");
+var pwd = document.getElementById("pwd");
+var registerSmtBtn = document.getElementById("registerSmtBtn");
+registerSmtBtn.addEventListener("click", function(){
+		console.log(account.value);
+    firebase.auth().createUserWithEmailAndPassword(account.value, pwd.value).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMsg = error.message;
+    console.log(errorMsg);
+  });
+},false);
+
+//登入
+var accountL = document.getElementById("accountL");
+var pwdL = document.getElementById("pwdL");
+var loginSmtBtn = document.getElementById("loginSmtBtn");
+loginSmtBtn.addEventListener("click",function(){
+	console.log(accountL.value);
+	firebase.auth().signInWithEmailAndPassword(accountL.value, pwdL.value).catch(function(error) {
+  	// Handle Errors here.
+  	var errorCode = error.code;
+  	var errorMessage = error.message;
+  	console.log(errorMessage);
+  })
+},false);
+
+//登出
+var signoutSmtBtn = document.getElementById("signoutSmtBtn");
+signoutSmtBtn.addEventListener("click",function(){
+	firebase.auth().signOut().then(function() {
+		console.log("User sign out!");
+	}, function(error) {
+  	console.log("User sign out error!");
+	})
+},false);
+
+//Email驗證
+var verifyBtn = document.getElementById("verifyBtn");
+verifyBtn.addEventListener("click",function(){
+  user.sendEmailVerification().then(function() {
+    console.log("驗證信寄出");
+  }, function(error) {
+   	console.error("驗證信錯誤");
+  });
+},false);
+
+//更改密碼
+var chgPwd = document.getElementById("chgPwd");
+var chgPwdBtn = document.getElementById("chgPwdBtn");
+chgPwdBtn.addEventListener("click",function(){
+	firebase.auth().sendPasswordResetEmail(chgPwd.value).then(function() {
+    // Email sent.
+    console.log("更改密碼Email已發送");
+    chgPwd.value = "";
+  }, function(error) {
+    // An error happened.
+    console.error("更改密碼",error);
+  });
+},false);
+
+//查看目前登入狀況
+var loginUser;
+firebase.auth().onAuthStateChanged(function(pUser) {
+  if (pUser) {
+  	loginUser = pUser;
+    console.log("User is logined", loginUser)
+  } else {
+  	loginUser = null;
+    console.log("User is not logined yet.");
+  }
+});
+
+//如果使用者操作了更改密碼、刪除帳號、更改信箱等，需要再次驗證
+/*var user = firebase.auth().currentUser;
+var credential = firebase.auth().EmailAuthProvider.credential(
+	user.email,
+  //password from user
+)*/
+
+var googleProvider = new firebase.auth.GoogleAuthProvider();
+//所需授權的Scope 
+//查閱 https://developers.facebook.com/docs/facebook-login/permissions
+// googleProvider.addScope('user_birthday');
+googleProvider.setCustomParameters({
+  'display': 'popup'
+});
+
+//使用Popup註冊FB方式
+var googleLoginBtn = document.getElementById("googleLoginBtn");
+
+googleLoginBtn.addEventListener("click", function () {
+  firebase.auth().signInWithPopup(googleProvider).then(function(result) {
+    // 取得 Google Token，可以使用於FB API中
+    var token = result.credential.accessToken;
+    // 使用者資料
+    loginUser = result.user;
+    console.log(loginUser);
+  }).catch(function(error) {
+    console.log('error=', error)
+  })
+})
+
+function goToApp(){
+
+}
+
+/*
+var provider = new firebase.auth.FacebookAuthProvider();
+//所需授權的Scope 
+//查閱 https://developers.facebook.com/docs/facebook-login/permissions
+provider.addScope('user_birthday');
+provider.setCustomParameters({
+  'display': 'popup'
+});
+
+//使用Popup註冊FB方式
+var fbLoginBtn = document.getElementById("fbLoginBtn");
+fbLoginBtn.addEventListener("click",function(){
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    // 取得FB Token，可以使用於FB API中
+    var token = result.credential.accessToken;
+    // 使用者資料
+    var FBUser = result.user;
+    console.log(FBUser);
+  }).catch(function(error) {
+    //處理 帳號已經存在於其他登入方式時
+    if (error.code === 'auth/account-exists-with-different-credential') {
+      //取得credential
+      var pendingCred = error.credential;
+      // The provider account's email address.
+      var email = error.email;
+      console.log("FB登入錯誤-使用者信箱：",email);
+      // 取得當初此Email的登入方式
+      firebase.auth().fetchProvidersForEmail(email).then(function(providers) {
+        // 如果使用者有多個登入方式的話
+        console.log("FB登入錯誤-其他登入方式：",providers);
+        if (providers[0] === 'password') {
+          // 如果使用者用密碼登入，要求使用者輸入密碼
+          var password = promptUserForPassword(); // TODO: 實作 promptUserForPassword.
+          firebase.auth().signInWithEmailAndPassword(email, password).then(function(user) {
+            // Step 4a.
+            return user.link(pendingCred);
+          }).then(function() {
+            // 成功連結
+            goToApp();
+          });
+          return;
+        }
+        // 如果是其他登入方式，必須取得該登入方式,同時提供相對應的Provider
+        // TODO: implement getProviderForProviderId.
+        var provider = getProviderForProviderId(providers[0]);
+        // 此時你必須讓使用者了解到 他曾經用其他方式登入過
+        // Note: 瀏覽器通常會擋住跳出頁面，所以在現實狀況下，最好有個"請繼續"按鈕觸發新的註冊頁面
+        // 可以參考 https://fir-ui-demo-84a6c.firebaseapp.com/
+        auth.signInWithPopup(provider).then(function(result) {
+          // 如果使用者用不同Email登入同一個帳號，這樣Firebase是無法擋住的
+          // Step 4b.
+          // 連結回原本的credential
+          result.user.link(pendingCred).then(function() {
+            // 成功連結
+            goToApp();
+          });
+        });
+      });
+    }
+  });
+},false);
+
+function promptUserForPassword(){
+	var pwd = prompt("Please enter your password");
+    if (pwd != null) {
+    	return pwd;
+    }
+}
+
+
+*/
+  </script>
+</body>
+</html>
