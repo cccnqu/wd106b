@@ -12,5 +12,5 @@ console.log('george.age=' + george.age)
 console.log('george.friends:')
 var friends = george.friends
 for (let i in friends) {
-  console.log('    ' + friends[i].name + ' is ' + friends[i].age + 'years old!')
+  console.log('    ' + friends[i].name + ' is ' + friends[i].age + ' years old!')
 }
