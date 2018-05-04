@@ -100,6 +100,8 @@ function show(match) {
 
 function create(match) {
   showPanel('create')
+  document.getElementById('postTitle').value = ''
+  document.getElementById('postBody').value = ''
 }
 
 let routeMap = [
@@ -121,6 +123,7 @@ window.onhashchange = function () {
 
 window.onload = function() {
   window.location.hash = '#/list/'
+  list()
 }
 </script>
 </body>
