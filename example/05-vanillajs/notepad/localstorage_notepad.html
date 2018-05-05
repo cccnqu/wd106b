@@ -7,7 +7,7 @@ input , textarea { width:80%; margin:10; padding:10; }
 a { color:blue; text-decoration:underline; }
 </style>
 </head>
-<body>
+<body onload="showList()">
 <div>
 <div><input id="title" type="text" value="標題"/></div>
 <br/>
@@ -43,7 +43,6 @@ function loadDoc(title) {
   oTitle.value = title.substring(8);
   oText.value  = window.localStorage.getItem(title);
 }
-
 
 </script>
 </div>
