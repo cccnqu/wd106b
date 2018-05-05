@@ -1,0 +1,90 @@
+/*This use to define whole document*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*Here we defined text color will be the white for all elements and all text will be in the center /fon size*/
+body {
+  color: white;
+  text-align: center;
+  /* font-size: 34px; */
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+  background-color: #202020;
+  height: 20px;
+  z-index: 1;
+}
+
+header a, header a:link {
+  color: white;
+}
+
+a, a:link {
+  text-decoration: none;
+}
+
+nav, aside {
+  position: fixed;
+  /* top: 30px; */
+  background-color: #202020;
+  height: 600px;
+  width: 200px;
+  float: left;
+  text-align: left;
+  padding: 20px;
+}
+
+nav li, aside li {
+  list-style-type: none;
+}
+
+aside a {
+  color: yellow;
+}
+
+main {
+  top: 40px;
+  background-color: #d0d0d0;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+footer {
+  background-color: brown;
+}
+
+/* ----------------- Dropdown -----------------*/
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

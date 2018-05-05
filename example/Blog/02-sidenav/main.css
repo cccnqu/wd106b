@@ -1,0 +1,173 @@
+/*This use to define whole document*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*Here we defined text color will be the white for all elements and all text will be in the center /fon size*/
+body {
+  color: white;
+  text-align: center;
+  /* font-size: 34px; */
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+  background-color: #333;
+  height: 36px;
+  z-index: 1;
+}
+
+header a, header a:link {
+  color: white;
+}
+
+a, a:link {
+  text-decoration: none;
+}
+/*
+nav, aside {
+  position: fixed;
+  top: 30px;
+  background-color: #333;
+  height: 600px;
+  width: 200px;
+  float: left;
+  text-align: left;
+  padding: 20px;
+}
+
+nav li, aside li {
+  list-style-type: none;
+}
+
+aside a {
+  color: yellow;
+}
+*/
+main {
+  top: 40px;
+  background-color: #d0d0d0;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+footer {
+  background-color: brown;
+}
+
+/* ----------------- Navbar -------------------*/
+.navbar {
+  /* width: 100%; */
+  float: right;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ----------------- Dropdown -----------------*/
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  /* padding: 14px 16px; */
+  padding: 8px 16px; 
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 8px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #222;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #ddd;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color:#222;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ----------------- Side Nav --------------------*/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  /* width: 200; */
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  /*font-size: 36px;*/
+  font-size: 28px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}

@@ -1,0 +1,11 @@
+{
+  "name": "course",
+  "version": "1.0.0",
+  "description": "just a course",
+  "main": "index.js",
+  "scripts": {
+    "publish": "git add -A&&git commit -m \"upload\"&&git push origin master"
+  },
+  "author": "",
+  "license": "ISC"
+}
