@@ -1,0 +1,65 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body>
+<header>
+  <div class="navbar" style="float:left">
+    <a onclick="openNav()" style="cursor:pointer">&#9776;</a>
+  </div>
+  <div class="navbar" style="float:right">
+    <div class="dropdown">
+      <button class="dropbtn">
+        <i class="fa fa-user"></i>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#login">登入</a>
+        <a href="#logout">登出</a>
+        <a href="#signup">註冊</a>
+      </div>
+    </div>
+    <a href="#Shop">茶舖子</a>
+  </div>
+<!-- </nav> -->
+</header>
+<aside>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#order">結帳</a>
+    <a href="#report">報表</a>
+    <a href="#MoPos">關於MoPos</a>
+  </div>
+</aside>
+<main>
+  <table>
+    <tr>
+      <td>
+        <select id="item">
+          <option value="紅茶">紅茶</option>
+          <option value="綠茶">綠茶</option>
+          <option value="珍珠奶茶">珍珠奶茶</option>
+        </select>
+        <select id="note">
+          <option value="去冰">去冰</option>
+          <option value="半糖">半糖</option>
+          <option value="熱">熱</option>
+        </select>
+      </td>
+      <td><input id="price" type="number" value="20"></td>
+      <td><input id="quantity" type="number" value="1"> <button onclick="quantity.value=parseInt(quantity.value)+1">+</button></td>
+    </tr>
+    <tr><th>商品</th><th>單價</th><th>數量</th></tr>
+    <tr><td>紅茶</td><td>20</td><td>3</td></tr>
+    <tr><td>珍珠奶茶</td><td>35</td><td>1</td></tr>
+    <tr class="strong"><td></td><td>總價</td><td>95</td></tr>
+  </table>
+</main>
+
+<footer>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
