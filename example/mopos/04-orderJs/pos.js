@@ -1,6 +1,6 @@
 const items = {'紅茶':20, '綠茶': 20, '珍珠奶茶': 35 }
 
-const notes = {'去冰':0, '半糖':0, '熱':0}
+const notes = {'去冰':0, '半糖':0, '熱':0, '加鮮奶':10 }
 
 let order = {
   totalPrice: 0,
@@ -18,6 +18,7 @@ const totalPriceControl = document.getElementById('totalPrice')
 function init() {
   itemSelect.innerHTML = optionList(items)
   noteSelect.innerHTML = optionList(notes)
+  calcPrice()
   if (localStorage.getItem('pos.orderCount') == null)
     localStorage.setItem('pos.orderCount', 0)
 }
@@ -60,11 +61,17 @@ function orderList(order) {
   return list.join('\n')
 }
 
-function addItem() {
+function calcPrice() {
   let [item, itemPrice] = itemSelect.value.split(':')
   let [note, notePrice] = noteSelect.value.split(':')
-  let quantity = parseInt(quantityControl.value)
   let price = parseInt(itemPrice) + parseInt(notePrice)
+  priceControl.value = price
+  return {item, note, price}
+}
+
+function addItem() {
+  let {item, note, price} = calcPrice()
+  let quantity = parseInt(quantityControl.value)
   let record = {name: item+'('+note+')', price: price, quantity: quantity}
   order.records.push(record)
   orderTableBody.innerHTML = orderList(order)

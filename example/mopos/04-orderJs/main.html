@@ -37,10 +37,10 @@
   <thead>
     <tr>
       <td>
-        <select id="items"></select>
-        <select id="notes"></select>
+        <select id="items" onchange="calcPrice()"></select>
+        <select id="notes" onchange="calcPrice()"></select>
       </td>
-      <td><input id="price" type="number" value="20"></td>
+      <td><input id="price" type="number" value="0"></td>
       <td>
         <input id="quantity" type="number" value="1">
         <!-- <button onclick="quantity.value=parseInt(quantity.value)+1">+1</button> -->
