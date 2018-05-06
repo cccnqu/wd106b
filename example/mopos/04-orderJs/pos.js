@@ -68,7 +68,7 @@ function addItem() {
   let record = {name: item+'('+note+')', price: price, quantity: quantity}
   order.records.push(record)
   orderTableBody.innerHTML = orderList(order)
-  order.totalPrice += price
+  order.totalPrice += price * quantity
   totalPriceControl.value = order.totalPrice
 }
 
