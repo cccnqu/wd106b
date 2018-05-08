@@ -4,10 +4,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="main.css"/>
 </head>
-<body onload="init()">
+<body onload="Shop.start()">
 <header>
   <div class="navbar" style="float:left">
-    <a onclick="openNav()" style="cursor:pointer">&#9776;</a>
+    <a onclick="Ui.openNav()" style="cursor:pointer">&#9776;</a>
   </div>
   <div class="navbar" style="float:right">
     <div class="dropdown">
@@ -21,25 +21,31 @@
         <a href="#signup">註冊</a>
       </div>
     </div>
-    <a href="#Shop">茶舖子</a>
+    <a href="#Shop" id="menuShopName">店名</a>
   </div>
 </header>
 <aside>
   <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#setting">設定</a>
-    <a href="#MoPos">關於MoPos</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="Ui.closeNav()">&times;</a>
+    <a href="#bbs">公告資訊</a>
+    <a href="#message">發訊息給商店</a>
+    <a href="#map">商店地圖</a>
+    <a href="#help">使用說明</a>
+    <a href="#license">軟體授權</a>
   </div>
 </aside>
 <main>
+  <div id="main" class="table" style="text-align:center">
+  </div>
 </main>
 
 <footer>
 </footer>
-<script src="main.js"></script>
 <script src="Shop.js"></script>
 <script src="Pos.js"></script>
 <script src="Report.js"></script>
 <script src="Setting.js"></script>
+<script src="Lib.js"></script>
+<script src="Ui.js"></script>
 </body>
 </html>

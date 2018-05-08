@@ -29,7 +29,7 @@ Pos.html = `
 </tbody>
 </table>
 <br/>
-<div class="strong center" style="width:300px">
+<div>
   <label>總價:</label>
   <input id="totalPrice" type="number" value="0">
   <button id="submit" onclick="Pos.submit()">送出訂單</button>
@@ -38,6 +38,7 @@ Pos.html = `
   <button id="goShop" onclick="Pos.goShop()">回主選單</button>
   <button id="newOrder" onclick="Pos.start()" disabled="disabled">新增下一筆</button>
   <br/><br/>
+</div>
 </div>
 `
 
@@ -59,23 +60,10 @@ Pos.abort = function () {
   }
 }
 
-var quantityControl, priceControl, itemSelect, addonSelect, orderTable, orderTableBody, totalPriceControl
-
 Pos.start = function () {
-  show(Pos.html)
-  quantityControl = document.getElementById('quantity')
-  priceControl = document.getElementById('price')
-  itemSelect = document.getElementById('items')
-  addonSelect = document.getElementById('addons')
-  orderTable = document.getElementById('orderTable')
-  orderTableBody = document.getElementById('orderTableBody')
-  totalPriceControl = document.getElementById('totalPrice')
-  submitButton = document.getElementById('submit')
-  abortButton = document.getElementById('abort')
-  newOrderButton = document.getElementById('newOrder')
-
-  itemSelect.innerHTML = Pos.optionList(Shop.items)
-  addonSelect.innerHTML = Pos.optionList(Shop.addons)
+  Ui.show(Pos.html)
+  Ui.id('items').innerHTML = Pos.optionList(Shop.items)
+  Ui.id('addons').innerHTML = Pos.optionList(Shop.addons)
   Pos.resetOrder(Order)
   Pos.calcPrice()
 }
@@ -95,10 +83,10 @@ Pos.submit = function () {
   Order.time = Date.now()
   Order.submitted = true
   Shop.saveOrder(Order)
-  submitButton.disabled = 'disabled'
-  submitButton.innerHTML = '已送出'
-  abortButton.disabled = 'disabled'
-  newOrderButton.disabled = ''
+  Ui.id('submit').disabled = 'disabled'
+  Ui.id('submit').innerHTML = '已送出'
+  Ui.id('abort').disabled = 'disabled'
+  Ui.id('newOrder').disabled = ''
 }
 
 Pos.optionList = function (list) {
@@ -114,25 +102,25 @@ Pos.list = function () {
   let records = Order.records
   let list = []
   for (let i=0; i<records.length; i++) {
-    list.push(`<tr><td>${records[i].name}</td><td>${records[i].price}</td><td>${records[i].quantity}</td></tr>`)
+    list.push(`<tr><td>${records[i].name}</td><td class="number">${records[i].price}</td><td class="number">${records[i].quantity}</td></tr>`)
   }
   return list.join('\n')
 }
 
 Pos.calcPrice = function () {
-  let [item, itemPrice] = itemSelect.value.split(':')
-  let [addon, addonPrice] = addonSelect.value.split(':')
+  let [item, itemPrice] = Ui.id('items').value.split(':')
+  let [addon, addonPrice] = Ui.id('addons').value.split(':')
   let price = parseInt(itemPrice) + parseInt(addonPrice)
-  priceControl.value = price
+  Ui.id('price').value = price
   return {item, addon, price}
 }
 
 Pos.addItem = function () {
   let {item, addon, price} = Pos.calcPrice()
-  let quantity = parseInt(quantityControl.value)
+  let quantity = parseInt(Ui.id('quantity').value)
   let record = {name: item+'('+addon+')', price: price, quantity: quantity}
   Order.records.push(record)
-  orderTableBody.innerHTML = Pos.list()
+  Ui.id('orderTableBody').innerHTML = Pos.list()
   Order.totalPrice += price * quantity
-  totalPriceControl.value = Order.totalPrice
+  Ui.id('totalPrice').value = Order.totalPrice
 }

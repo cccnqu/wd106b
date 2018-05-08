@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css"/>
+</head>
+<body onload="ShopMain.start()">
+<header>
+  <div class="navbar" style="float:left">
+    <a onclick="Ui.openNav()" style="cursor:pointer">&#9776;</a>
+  </div>
+  <div class="navbar" style="float:right">
+    <div class="dropdown">
+      <button class="dropbtn">
+        <i class="fa fa-user"></i>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#login">登入</a>
+        <a href="#logout">登出</a>
+        <a href="#signup">註冊</a>
+      </div>
+    </div>
+    <a href="#title" id="title">店名</a>
+  </div>
+</header>
+<aside>
+  <div id="leftNav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="Ui.closeNav()">&times;</a>
+    <a href="#" class="bold" style="color:#E0E000;font-size:150%;">LaPos</a>
+    <div id="leftMenu">
+    </div>
+  </div>
+</aside>
+<main>
+  <div id="main" class="table" style="text-align:center">
+  </div>
+</main>
+
+<footer>
+</footer>
+<script src="Db.js"></script>
+<script src="Lib.js"></script>
+<script src="Ui.js"></script>
+<script src="shop/Shop.js"></script>
+<script src="shop/Pos.js"></script>
+<script src="shop/Report.js"></script>
+<script src="shop/Setting.js"></script>
+<script src="shop/ShopMain.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+input:disabled, button:disabled {
+  background: #aaa;
+  color: #555;
+}
+
+.big {
+  padding: 10px 15px;
+}
+
+/* main : 參考: https://codepen.io/legeoffrey/pen/mydrVo */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 5px;
+  background-color: #333;
+  height: 36px;
+  z-index: 1;
+}
+
+header a, header a:link {
+  color: white;
+}
+
+a, a:link {
+  text-decoration: none;
+}
+
+main {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  padding: 10px;
+}
+
+.wide {
+  width: 100%;
+}
+
+.text-right {
+  text-align:right;
+}
+
+.number {
+  text-align:right;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.right {
+  float: right;
+}
+
+table {
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #333;
+  border-collapse: collapse;
+}
+
+div {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 3px 6px;
+}
+
+th {
+  background-color: #333;
+  color: #ddd;
+}
+
+textarea, input, select {
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 5px;
+  border:1px solid #888;
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+button {
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  padding: 5px 10px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+  border-radius: 2px;
+  background-color: #336699;
+}
+
+input[type=number] {
+  width: 5em;
+}
+
+input[type=text] {
+  width: 20em;
+}
+
+.strong {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+footer {
+  background-color: brown;
+}
+
+/* ----------------- Dropdown -----------------*/
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  float: right;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 16px; 
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 8px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #222;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #ddd;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color:#222;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ----------------- Side Nav --------------------*/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ddd;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 28px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}

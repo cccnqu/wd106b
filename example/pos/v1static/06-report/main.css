@@ -7,15 +7,10 @@ input:disabled, button:disabled {
   padding: 10px 15px;
 }
 
-/* 參考: https://codepen.io/legeoffrey/pen/mydrVo */
-/*This use to define whole document*/
+/* main : 參考: https://codepen.io/legeoffrey/pen/mydrVo */
 * {
   margin: 0px;
   padding: 0px;
-}
-
-body {
-  /* text-align: center; */
 }
 
 header {
@@ -44,13 +39,17 @@ main {
   margin-left: auto;
   width: 90%;
   padding: 10px;
-  /*
-  border: 1px solid #888;
-  background-color: #d0d0d0;
-  */
+}
+
+.wide {
+  width: 100%;
 }
 
 .text-right {
+  text-align:right;
+}
+
+.number {
   text-align:right;
 }
 
@@ -64,7 +63,6 @@ main {
 }
 
 table {
-  /* width: 80%; */
   margin-right: auto;
   margin-left: auto;
   border: 1px solid #333;
@@ -72,7 +70,6 @@ table {
 }
 
 div {
-  /* border: 1px solid #888; */
   margin-right: auto;
   margin-left: auto;
 }
@@ -115,6 +112,10 @@ button {
 
 input[type=number] {
   width: 5em;
+}
+
+input[type=text] {
+  width: 20em;
 }
 
 .strong {
@@ -197,7 +198,6 @@ footer {
 .sidenav {
   height: 100%;
   width: 0;
-  /* width: 200; */
   position: fixed;
   z-index: 2;
   top: 0px;
@@ -233,4 +233,3 @@ footer {
 .sidenav {padding-top: 15px;}
 .sidenav a {font-size: 18px;}
 }
-
