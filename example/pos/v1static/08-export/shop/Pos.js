@@ -9,9 +9,17 @@ Pos.html = `
     <tr>
       <td><select id="items" onchange="Pos.calcPrice()"></select></td>
       <td><select id="addons" onchange="Pos.calcPrice()"></select></td>
-      <td><input id="price" type="number" value="0"></td>
+      <td><input id="price" type="text" value="0" style="width:4em"></td>
       <td nowrap>
-        <input id="quantity" type="number" value="1">
+        <input type="text" list="quantity" style="width:4em">
+        <datalist id="quantity">
+          <option value="1">
+          <option value="2">
+          <option value="3">
+          <option value="4">
+          <option value="5">
+          <option value="6">
+        </datalist>
         <button onclick="Pos.addItem()">新增</button>
       </td>
     </tr>
