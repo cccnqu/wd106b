@@ -10,7 +10,7 @@ Pos.html = `
       <td><select id="items" onchange="Pos.calcPrice()"></select></td>
       <td><select id="addons" onchange="Pos.calcPrice()"></select></td>
       <td><input id="price" type="number" value="0"></td>
-      <td style="min-width: 100px">
+      <td nowrap>
         <input id="quantity" type="number" value="1">
         <button onclick="Pos.addItem()">新增</button>
       </td>
