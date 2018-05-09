@@ -4,7 +4,7 @@ var Order = {}
 
 Pos.html = `
 <div>
-  <table id="orderTable" style="border: 0px none #333;">
+  <table id="orderTable">
   <thead>
     <tr>
       <td><select id="items" onchange="Pos.calcPrice()"></select></td>
@@ -21,15 +21,18 @@ Pos.html = `
     <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
   </tbody>
   </table>
+  <div class="nowrap bigmargin">
+    <label>總價:</label>
+    <input id="totalPrice" type="number" value="0">
+    <button id="goShop" onclick="Pos.goShop()">回主選單</button>
+    <button id="newOrder" onclick="Pos.start()" disabled="disabled">新增下一筆</button>
+    <button id="submit" onclick="Pos.submit()">下單</button>
+    <button id="abort" onclick="Pos.abort()">放棄</button>
+  </div>
 </div>
 <br/>
 <div>
-  <label>總價:</label>
-  <input id="totalPrice" type="number" value="0">
-  <button id="goShop" onclick="Pos.goShop()">回主選單</button>
-  <button id="newOrder" onclick="Pos.start()" disabled="disabled">新增下一筆</button>
-  <button id="submit" onclick="Pos.submit()">下單</button>
-  <button id="abort" onclick="Pos.abort()">放棄</button>
+
 </div>
 </div>
 `

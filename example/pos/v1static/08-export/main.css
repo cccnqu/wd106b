@@ -75,6 +75,19 @@ main {
   border: 0px;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
+.bigmargin {
+  margin: 10px;
+}
+
+.strong {
+  font-weight: bold;
+  font-size: 120%;
+}
+
 table {
   margin-right: auto;
   margin-left: auto;
@@ -135,11 +148,6 @@ input[type=number]::-webkit-inner-spin-button { /* 在 chrome 裏讓 input type=
 
 input[type=text] {
   width: 20em;
-}
-
-.strong {
-  font-weight: bold;
-  font-size: 120%;
 }
 
 footer {
