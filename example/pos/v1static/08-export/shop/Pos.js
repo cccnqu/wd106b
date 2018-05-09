@@ -11,8 +11,8 @@ Pos.html = `
       <td><select id="addons" onchange="Pos.calcPrice()"></select></td>
       <td><input id="price" type="text" value="0" style="width:4em"></td>
       <td nowrap>
-        <input type="text" list="quantity" style="width:4em">
-        <datalist id="quantity">
+        <input id="quantity" type="text" list="quantityData" value="1" style="width:4em">
+        <datalist id="quantityData">
           <option value="1">
           <option value="2">
           <option value="3">
