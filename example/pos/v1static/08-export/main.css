@@ -71,6 +71,10 @@ main {
   visibility: hidden;
 }
 
+.noborder {
+  border: 0px;
+}
+
 table {
   margin-right: auto;
   margin-left: auto;
@@ -111,7 +115,7 @@ label {
 }
 
 button {
-  margin: 4px;
+  margin: 2px 4px;
   border: none; /* Remove borders */
   color: white; /* Add a text color */
   padding: 5px 10px; /* Add some padding */
@@ -125,7 +129,7 @@ input[type=number] {
   width: 4em;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+input[type=number]::-webkit-inner-spin-button { /* 在 chrome 裏讓 input type=number 有上下箭號 */
   opacity: 1;
 }
 

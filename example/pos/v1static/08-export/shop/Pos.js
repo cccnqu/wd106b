@@ -4,13 +4,13 @@ var Order = {}
 
 Pos.html = `
 <div>
-  <table id="orderTable">
+  <table id="orderTable" style="border: 0px none #333;">
   <thead>
     <tr>
       <td><select id="items" onchange="Pos.calcPrice()"></select></td>
       <td><select id="addons" onchange="Pos.calcPrice()"></select></td>
       <td><input id="price" type="number" value="0"></td>
-      <td>
+      <td style="min-width: 100px">
         <input id="quantity" type="number" value="1">
         <button onclick="Pos.addItem()">新增</button>
       </td>
@@ -28,8 +28,8 @@ Pos.html = `
   <input id="totalPrice" type="number" value="0">
   <button id="goShop" onclick="Pos.goShop()">回主選單</button>
   <button id="newOrder" onclick="Pos.start()" disabled="disabled">新增下一筆</button>
-  <button id="abort" onclick="Pos.abort()">放棄訂單</button>
-  <button id="submit" onclick="Pos.submit()">送出訂單</button>
+  <button id="submit" onclick="Pos.submit()">下單</button>
+  <button id="abort" onclick="Pos.abort()">放棄</button>
 </div>
 </div>
 `
