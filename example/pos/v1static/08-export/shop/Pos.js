@@ -11,7 +11,7 @@ Pos.html = `
       <td><select id="addons" onchange="Pos.calcPrice()"></select></td>
       <td><input id="price" type="text" value="0" style="width:4em"></td>
       <td nowrap>
-        <input id="quantity" type="text" list="quantityData" value="1" style="width:4em">
+        <input id="quantity" onclick="this.value=''" type="text" list="quantityData" value="1" style="width:4em">
         <datalist id="quantityData">
           <option value="1">
           <option value="2">
@@ -19,7 +19,14 @@ Pos.html = `
           <option value="4">
           <option value="5">
           <option value="6">
-        </datalist>
+          <option value="7">
+          <option value="8">
+          <option value="9">
+          <option value="10">
+          <option value="20">
+          <option value="50">
+          <option value="100">
+          </datalist>
         <button onclick="Pos.addItem()">新增</button>
       </td>
     </tr>
@@ -31,7 +38,7 @@ Pos.html = `
   </table>
   <div class="nowrap bigmargin">
     <label>總價:</label>
-    <input id="totalPrice" type="number" value="0">
+    <input id="totalPrice" type="number" value="0" style="width:5em">
     <button id="goShop" onclick="Pos.goShop()">回主選單</button>
     <button id="newOrder" onclick="Pos.start()" disabled="disabled">新增下一筆</button>
     <button id="submit" onclick="Pos.submit()">下單</button>
