@@ -23,7 +23,7 @@ Pos.html = `
   </table>
 </div>
 <br/>
-<div style="width:500px">
+<div>
   <label>總價:</label>
   <input id="totalPrice" type="number" value="0">
   <button id="goShop" onclick="Pos.goShop()">回主選單</button>
