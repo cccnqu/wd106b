@@ -94,24 +94,25 @@ function showList() {
   var rowHtml = ""
   postsRef.once('value').then(function(snapshot){
   	snapshot.forEach(function(childSnapshot) {
+      let key = childSnapshot.key
       let post = childSnapshot.val()
-      rowHtml += "<tr><td><a onclick=\"loadDoc('"+post.title+"')\">"+post.title.substring(8)+"</a></td></tr>"
-      console.log(childSnapshot.val());
+      rowHtml += "<tr><td><a onclick=\"loadDoc('"+key+"')\">"+post.title+"</a></td></tr>"
+      console.log(post);
     })
+    oList.innerHTML = rowHtml;
+    console.log('rowHtml=', rowHtml)
   })
-  /*
-  for (var title in window.localStorage) {
-    if (title.startsWith("notepad:")) {
-      rowHtml += "<tr><td><a onclick=\"loadDoc('"+title+"')\">"+title.substring(8)+"</a></td></tr>"
-    }
-  }
-  */
-  oList.innerHTML = rowHtml;
 }
 
-function loadDoc(title) {
-  oTitle.value = title.substring(8);
-  oText.value  = window.localStorage.getItem(title);
+function loadDoc(key) {
+  console.log('key=', key)
+  var postRef = firebase.database().ref('/messages/' + key).once('value').then(function(snapshot) {
+    // var postsRef = firebase.database().ref('messages/');
+    var post = snapshot.val()
+    console.log('post=', post)
+    oTitle.value = post.title
+    oText.value  = post.text
+  })
 }
 
 
