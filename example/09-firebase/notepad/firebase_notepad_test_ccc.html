@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+input , textarea { width:80%; margin:10; padding:10; }
+a { color:blue; text-decoration:underline; }
+</style>
+</head>
+<body>
+<div>
+  <button id="googleLoginBtn">Google Login</button>
+  <div><input id="title" type="text" value="標題"/></div>
+  <br/>
+  <div><textarea id="text" style="height:300px">內文</textarea></div>
+  <button onclick="save()">儲存</button>
+  <div>
+  <table id="list">
+  </table>
+</div>
+<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyD5so6xChRH7EeBs_OUKhy46OcP3MF8Tgc",
+    authDomain: "test01-ccc.firebaseapp.com",
+    databaseURL: "https://test01-ccc.firebaseio.com",
+    projectId: "test01-ccc",
+    storageBucket: "test01-ccc.appspot.com",
+    messagingSenderId: "748711573529"
+};
+firebase.initializeApp(config);
+
+var googleProvider = new firebase.auth.GoogleAuthProvider();
+//所需授權的Scope 
+//查閱 https://developers.facebook.com/docs/facebook-login/permissions
+// googleProvider.addScope('user_birthday');
+googleProvider.setCustomParameters({
+  'display': 'popup'
+});
+
+//使用Popup註冊FB方式
+var googleLoginBtn = document.getElementById("googleLoginBtn");
+
+googleLoginBtn.addEventListener("click", function () {
+  firebase.auth().signInWithPopup(googleProvider).then(function(result) {
+    // 取得 Google Token，可以使用於FB API中
+    var token = result.credential.accessToken;
+    // 使用者資料
+    loginUser = result.user;
+    console.log(loginUser);
+  }).catch(function(error) {
+    console.log('error=', error)
+  })
+})
+
+var loginUser;
+firebase.auth().onAuthStateChanged(function(pUser) {
+  if (pUser) {
+  	loginUser = pUser;
+    console.log("User is logined", loginUser)
+  } else {
+  	loginUser = null;
+    console.log("User is not logined yet.");
+  }
+});
+
+var oTitle = document.getElementById("title");
+var oText  = document.getElementById("text");
+var oList = document.getElementById("list");
+
+function save() {
+  var title = oTitle.value;
+  var text  = oText.value;
+  var postRef = firebase.database().ref('/messages/');
+	postRef.push().set({
+    by: loginUser.uid,
+    title: title,
+    text: text,
+    // content:postContent.value,
+    time: firebase.database.ServerValue.TIMESTAMP
+  }).then(function(){
+  	console.log("新增Post成功");
+  }).catch(function(err){
+  	console.error("新增Post錯誤：",err);
+  })
+  // window.localStorage.setItem("notepad:"+title, text);
+  showList();
+}
+
+function showList() {
+  var postsRef = firebase.database().ref('messages/').orderByChild("by").equalTo(loginUser.uid);
+  console.log("取得使用者所有Post")
+  var rowHtml = ""
+  postsRef.once('value').then(function(snapshot){
+  	snapshot.forEach(function(childSnapshot) {
+      let key = childSnapshot.key
+      let post = childSnapshot.val()
+      rowHtml += "<tr><td><a onclick=\"loadDoc('"+key+"')\">"+post.title+"</a></td></tr>"
+      console.log(post);
+    })
+    oList.innerHTML = rowHtml;
+    console.log('rowHtml=', rowHtml)
+  })
+}
+
+function loadDoc(key) {
+  console.log('key=', key)
+  var postRef = firebase.database().ref('/messages/' + key).once('value').then(function(snapshot) {
+    // var postsRef = firebase.database().ref('messages/');
+    var post = snapshot.val()
+    console.log('post=', post)
+    oTitle.value = post.title
+    oText.value  = post.text
+  })
+}
+
+
+</script>
+</div>
+</body>
+</html>
