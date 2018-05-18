@@ -1,0 +1,22 @@
+textarea, div {
+  overflow-x: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 10px;
+  /* border:1px dotted #888; */
+  width: 90%;
+}
+
+#math {
+  font-size: 16px;
+}
+
+textarea {
+  font-size: 12px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+}

@@ -1,0 +1,19 @@
+const Login = {}
+
+Login.html = `
+<button id="googleLoginBtn" onclick="Login.googleLogin()">Google 登入</button>
+`
+
+Login.start = function () {
+  Ui.show(Login.html)
+}
+
+Login.googleLogin = async function () {
+  var gUser = await Fire.googleLogin()
+  if (gUser != null) {
+    let user = {uid: gUser.uid, name: gUser.displayName, email: gUser.email}
+    Ui.id('userName').innerHTML = user.name
+    User.login(user)
+    return user
+  }
+}

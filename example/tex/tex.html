@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="katex/katex.min.css">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <textarea id="tex" style="height:120px">
+\int_0^{\infty} f(x) dx
+\sum_0^{10} g(x)
+\int_0^{\infty} f(x) dx
+\sum_0^{10} g(x)
+\int_0^{\infty} f(x) dx
+\sum_0^{10} g(x)
+\int_0^{\infty} f(x) dx
+\sum_0^{10} g(x)
+  </textarea>
+  <br/>
+  <button onclick="texShow()">Show</button>
+  <br/>
+  <div id="math">
+  </div>
+  <script>
+const mathDiv = document.getElementById('math')
+const texArea = document.getElementById('tex')
+// texArea.value.trim()
+function texShow() {
+  var lines = texArea.value.trim().split('\n')
+  var mathList = []
+  for (let line of lines) {
+    mathList.push(katex.renderToString(line.trim()))
+  }
+  mathDiv.innerHTML = mathList.join('<br/><br/>')
+}
+  </script>
+  <script src="katex/katex.min.js"></script>
+</body>
+</html>
