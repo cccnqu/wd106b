@@ -39,3 +39,13 @@
 
 * 美化按鈕
 * 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/08-beautybutton/index.html
+
+## 09-chart
+
+* 加入 vis.js 圖表
+* 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/09-chart/index.html
+
+## 08-beautybutton
+
+* 加入 google map
+* 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/10-map/index.html
