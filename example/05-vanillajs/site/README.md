@@ -45,7 +45,7 @@
 * 加入 vis.js 圖表
 * 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/09-chart/index.html
 
-## 08-beautybutton
+## 10-map
 
 * 加入 google map
 * 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/10-map/index.html
