@@ -1,6 +1,6 @@
 const page = {}
 
-page.home = `
+page.home = page[''] = `
 <h1>這是首頁！</h1>
 <a href="http://tw.youtube.com">YouTube</a>
 `
