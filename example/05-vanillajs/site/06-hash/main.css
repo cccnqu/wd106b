@@ -1,0 +1,18 @@
+* {
+  margin:0;
+}
+
+#main {
+  padding: 16px;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 16px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 10px;
+}
