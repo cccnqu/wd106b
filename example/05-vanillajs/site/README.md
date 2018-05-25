@@ -27,15 +27,15 @@
 
 ## 06-hash
 
-* 使用 hash 讓回上一頁可以正常運作
+* 使用 hash 讓回上一頁可以正常運作
 * 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/06-hash/index.html
 
 ## 07-generalhash
 
-* 讓 hash 通用，不需要加 switch case ...
+* 讓 hash 通用，不需要加 switch case ...
 * 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/07-generalhash/index.html
 
 ## 08-beautybutton
 
-* 美化按鈕
+* 美化按鈕
 * 展示： https://rawgit.com/cccnqu/wd106b/master/example/05-vanillajs/site/08-beautybutton/index.html
