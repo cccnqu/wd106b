@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/main.css"/>
+  </head>
+  <body>
+  <header>
+    <div id="header">
+    <div class="navbar" style="float:left">
+        <a onclick="Ui.openNav()" style="cursor:pointer">&#9776;</a>
+        <a onclick="Shop.mainPage()" href="#LaPos" style="font-family:Verdana; text-shadow: 1px 0px 1px rgb(243, 243, 154); ">LaPos</a>
+        </div>
+        <div class="navbar" style="float:right">
+        <a href="#title" id="title"></a>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <label id="userName" style="color:white"><i class="fa fa-user"></i></label>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#login" onclick="User.showLogin()">登入</a>
+            <a href="#logout" onclick="User.logout()">登出</a>
+            <a href="#newShop" onclick="User.newShop()">我要開店</a>
+            <a href="#myShop" onclick="User.myShop()">經營商店</a>
+            <a href="#newShop" onclick="User.findShop()">我要找店</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <label style="color:white">繁體中文</label>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#en" onclick="Mt.set('en')">English</a>
+            <a href="#tw" onclick="Mt.set('tw')">繁體中文</a>
+            <a href="#cn" onclick="Mt.set('cn')">簡體中文</a>
+            <a href="#jp" onclick="Mt.set('jp')">日本語</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div id="leftNav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="Ui.closeNav()">&times;</a>
+      <div id="menu">
+        <a onclick="ShopTable.start()" >商店列表</a>
+        <a onclick="Gmap.start()" >商店地圖</a>
+        <a href="#help">使用說明</a>
+        <a href="#about">關於本軟體</a>
+      </div>
+    </div>
+  </aside>
+  <main>
+    <div id="main" class="table" style="text-align:center">
+      <div class="center" style="text-align:left; margin: 20px;">
+        <h1>LaPos 在家開店系統</h1>
+        <br/>
+        <button onclick="Ui.goto('shop.html')">我要開店</button>
+        <button onclick="Ui.goto('user.html')">我要找店</button>
+        <br/>
+        <br/>
+        <p>開店一定要有《店面》嗎？一定要花很多本錢嗎？</p>
+        <p>LaPos 讓您不用店面成本，在家就能開店。</p>
+        <p>LaPos 是一個《網路 POS 系統》，也就是像《7-11、全家便利店、或珍珠奶茶連鎖店》那種櫃台結帳系統。</p>
+        <p>透過 LaPos、您可以在家裡開店賺錢！</p>
+        <br/>
+        <p>例如：</p>
+        <p>
+          <ol>
+            <li>您想販賣便當，或者讓人們到你家用餐，那麼就可以上 LaPos 開家庭餐廳。</li>
+            <li>您可以當保母，或者讓小孩到你家安親，那麼就可以上 LaPos 開家庭安親班。</li>
+            <li>您可以讓狗貓寄養在你家，那麼就可以上 LaPos 開家庭寵物旅館。</li>
+            <li>您可以照顧老弱病人，那麼就可以上 LaPos 經營家庭照護服務。</li>
+            <li>您有專業才能，像是《拉小提琴、寫程式、彈鋼琴》，那麼就可以上 LaPos 開家庭才藝班。</li>
+          </ol>
+        </p>
+        <br/>
+        <p>如果您想開店，只要上 LaPos 創建帳號後、輸入產品清單與價錢，就可以開始營業了！ (請看下列投影片)</p>
+        <br/>
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQI_AC5-Kj2IaWazK_aY_mVAJvpC1Ha1avY2uI8Krrt7CB9WFGEQLrJiGlm_OtQbCDSEPXmfO0b8LI1/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="480" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <br/>
+        <br/>
+        <p>如果您想找店，可以直接上 LaPos 看店面地圖，過濾出您想要的商店，然後直接下單、或者到店裡直接消費就行了！</p>
+        <br/>
+        <p>以下是 LaPos 的使用影片，您會發現這個系統是非常容易使用的，比 Facebook, Line 更容易使用 ...</p>
+        <br/>
+        <iframe width="800" height="500" src="https://www.youtube.com/embed/-H1W6Xyvy48?start=1135" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <br/>
+        <br/>
+        <p>店面由您在家經營，剩下的交給 LaPos 就行了！</p>
+        <br/>
+        <p>現在、您可以開始在家經營自己的事業了！</p>
+        <br/>
+        <button onclick="">我要開店</button>
+        <button onclick="">我要找店</button>
+        <br/>
+        <br/>
+        <a href="https://lapos.com">https://lapos.com</a>
+        <br/>
+      </div>
+    </div>
+  </main>
+  <footer>
+      © 2018 LaPos, Inc.
+      <a href="#Terms">Terms</a> / 
+      <a href="#Privacy">Privacy</a> / 
+      <a href="#Help">Help</a> / 
+      Email : <a href="lapos.com@gmail.com">lapos.com@gmail.com</a>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+  <script src="../js/Local.js"></script>
+  <script src="../js/Db.js"></script>
+  <script src="../js/Lib.js"></script>
+  <script src="../js/Ui.js"></script>
+  <script src="../js/Shared.js"></script>
+  <script src="../page/Shop.js"></script>
+  <script src="../page/ShopTable.js"></script>
+  <script src="../page/Pos.js"></script>
+  <script src="../page/Report.js"></script>
+  <script src="../page/Setting.js"></script>
+  <script src="../page/Storage.js"></script>
+  <script src="../page/User.js"></script>
+  <script src="../page/Gmap.js"></script>
+</body>
+</html>

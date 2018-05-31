@@ -1,0 +1,333 @@
+input:disabled, button:disabled {
+  background: #aaa;
+  color: #555;
+}
+
+/* main : 參考: https://codepen.io/legeoffrey/pen/mydrVo */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 5px;
+  background-color: #333;
+  height: 36px;
+  z-index: 1;
+}
+
+header a, header a:link {
+  color: white;
+}
+
+a, a:link {
+  text-decoration: none;
+}
+
+main {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+  /*height: 100vh;*/
+  padding: 10px;
+}
+
+.gmap {
+  padding: 0px;
+  margin: 0px;
+  width:100%;
+  height:100%;
+}
+/*
+#main {
+  height: 100%;
+  width: 100%;
+}
+*/
+.italic {
+  font-style: italic;
+}
+
+.logo {
+  font-family: Verdana;
+  color: #eeee00;
+}
+
+.wide {
+  width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.big {
+  padding: 10px 15px;
+  font-size: 125%;
+}
+
+.text-right {
+  text-align:right;
+}
+
+.number {
+  text-align:right;
+}
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.right {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.noborder {
+  border: 0px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.bigmargin {
+  margin: 10px;
+}
+
+.strong {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+h1, h2, h3 {
+  font-family: 標楷體, 'Times New Roman';
+}
+
+p {
+  line-height: 200%;
+}
+
+li {
+  line-height: 180%;
+}
+
+ol, ul {
+  margin: 10px 20px;
+}
+
+table {
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #333;
+  border-collapse: collapse;
+}
+
+div {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 3px 6px;
+}
+
+th {
+  background-color: #333;
+  color: #ddd;
+}
+
+textarea, input, select, button {
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 8px 6px;
+  border:1px solid #888;
+  font-size: 16px;
+}
+
+button {
+  /*
+  border-radius: 2px;
+  box-shadow: none;
+  padding: 8px 12px;
+  */
+  border: none;
+  padding: 8px 12px;
+  margin: 2px 4px;
+  color: white;
+  cursor: pointer;
+  min-width: 50px;
+  background-color: #336699;
+}
+
+button.small {
+  font-size: 12px;
+  padding: 8px 10px;
+}
+
+.red {
+  background-color:#f44336;
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+
+input[type=number] {
+  width: 4em;
+}
+
+/* 在 chrome 裏讓 input type=number 有上下箭號 */
+/*
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+*/
+input[type=text] {
+  width: 20em;
+}
+
+input.short {
+  width: 10em;
+}
+
+a, a:visited {
+  color: #336699;
+}
+
+footer {
+  margin: 20px 20px;
+  padding: 20px 20px;
+  text-align: center;
+  border-top: 1px dotted #ddd;
+  font-size: 100%;
+}
+
+/* ----------------- Dropdown -----------------*/
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  float: right;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar a {
+  float: left;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  padding: 8px 16px; 
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;    
+  border: none;
+  outline: none;
+  color: white;
+  padding: 8px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #222;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #ddd;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color:#222;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ----------------- Side Nav --------------------*/
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #ddd;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 28px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}

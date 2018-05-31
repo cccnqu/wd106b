@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/main.css"/>
+  </head>
+  <body onload="Gmap.start()">
+  <header>
+    <div id="header">
+    <div class="navbar" style="float:left">
+        <a onclick="Ui.openNav()" style="cursor:pointer">&#9776;</a>
+        <a onclick="Shop.mainPage()" href="#LaPos" style="font-family:Verdana; text-shadow: 1px 0px 1px rgb(243, 243, 154); ">LaPos</a>
+        </div>
+        <div class="navbar" style="float:right">
+        <div class="dropdown">
+          <button class="dropbtn">
+            <label id="userName" style="color:white"><i class="fa fa-user"></i></label>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#login" onclick="User.showLogin()">登入</a>
+            <a href="#logout" onclick="User.logout()">登出</a>
+            <a href="#newShop" onclick="User.newShop()">我要開店</a>
+            <a href="#myShop" onclick="User.myShop()">我的商店</a>
+          </div>
+        </div>
+        <a href="#title" id="title">店名</a>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div id="leftNav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="Ui.closeNav()">&times;</a>
+      <div id="menu">
+        <a onclick="ShopTable.start()" >商店列表</a>
+        <a onclick="Gmap.start()" >商店地圖</a>
+        <a href="#help">使用說明</a>
+        <a href="#about">關於本軟體</a>
+      </div>
+    </div>
+  </aside>
+  <main>
+    <div id="main" class="table" style="text-align:center">
+    </div>
+  </main>
+  
+  <footer>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+  <script src="../js/Local.js"></script>
+  <script src="../js/Db.js"></script>
+  <script src="../js/Lib.js"></script>
+  <script src="../js/Ui.js"></script>
+  <script src="../js/Shared.js"></script>
+  <script src="../page/Shop.js"></script>
+  <script src="../page/ShopTable.js"></script>
+  <script src="../page/Pos.js"></script>
+  <script src="../page/Report.js"></script>
+  <script src="../page/Setting.js"></script>
+  <script src="../page/Storage.js"></script>
+  <script src="../page/User.js"></script>
+  <script src="../page/Gmap.js"></script>
+</body>
+</html>

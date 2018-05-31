@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css"/>
+  </head>
+  <body onload="Shop.mainPage()">
+  <header>
+    <div id="header">
+    <div class="navbar" style="float:left">
+        <a onclick="Ui.openNav()" style="cursor:pointer">&#9776;</a>
+        <a onclick="Shop.mainPage()" href="#LaPos" style="font-family:Verdana; text-shadow: 1px 0px 1px rgb(243, 243, 154); ">LaPos</a>
+        </div>
+        <div class="navbar" style="float:right">
+        <div class="dropdown">
+          <button class="dropbtn">
+            <label id="userName" style="color:white"><i class="fa fa-user"></i></label>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="#login" onclick="User.showLogin()">登入</a>
+            <a href="#logout" onclick="User.logout()">登出</a>
+            <a href="#signup">註冊</a>
+            <a href="#newShop">我要開店</a>
+            <a href="#myShop">我的商店</a>
+          </div>
+        </div>
+        <a href="#title" id="title">店名</a>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <div id="leftNav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="Ui.closeNav()">&times;</a>
+      <div id="menu">
+        <!--
+        <a href="#search">商店搜尋</a>
+        <a href="#love">最愛商店</a>
+        <a href="#map">商店地圖</a>
+        -->
+        <a href="#help">使用說明</a>
+        <a href="#about">關於本軟體</a>
+      </div>
+    </div>
+  </aside>
+  <main>
+    <div id="main" class="table" style="text-align:center">
+    </div>
+  </main>
+  
+  <footer>
+  </footer>
+  <script src="lib/Local.js"></script>
+  <script src="lib/Db.js"></script>
+  <script src="lib/Lib.js"></script>
+  <script src="lib/Ui.js"></script>
+  <script src="shop/Shop.js"></script>
+  <script src="shop/Pos.js"></script>
+  <script src="shop/Report.js"></script>
+  <script src="shop/Setting.js"></script>
+  <script src="shop/Storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+  <script src="user/User.js"></script>
+  <script src="lib/Fire.js"></script>
+</body>
+</html>

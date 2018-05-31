@@ -1,3 +1,0 @@
-# Vuetify
-
-* https://vuetifyjs.com/

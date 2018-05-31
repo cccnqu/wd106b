@@ -1,0 +1,14 @@
+{
+  "name": "lapos",
+  "version": "0.0.1",
+  "description": "A Pos System",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
